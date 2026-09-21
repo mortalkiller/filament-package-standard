@@ -48,6 +48,6 @@ Never weaken security, compatibility, tests or architecture to satisfy a scanner
 
 ## Laravel Boost distribution
 
-This maintainer skill is published from `resources/boost/skills/developing-filament-packages`, the Laravel Boost third-party skill convention. When `mortalkiller/filament-package-standard` is a direct dependency, `php artisan boost:update` can discover and sync it to configured skills-capable agents.
+This maintainer skill is published from `resources/boost/skills/developing-filament-packages`, the Laravel Boost third-party skill convention. When `mortalkiller/filament-package-standard` is a direct dependency and Laravel Boost is installed, Boost can discover and sync it to configured skills-capable agents. Use `php artisan boost:update` in a Laravel application or `vendor/bin/testbench boost:update` in a standalone package using Orchestra Testbench.
 
 Public packages should consume this maintainer skill through the dedicated standard package rather than copying it. A package may instead provide its own consumer-facing skill under `resources/boost/skills/<skill-name>/` when that improves correct package usage. Do not rely on transitive dependency discovery.
