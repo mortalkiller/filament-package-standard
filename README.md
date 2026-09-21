@@ -1,5 +1,8 @@
 # Filament Package Standard
 
+[![Package tests](https://github.com/mortalkiller/filament-package-standard/actions/workflows/tests.yml/badge.svg?branch=1.x)](https://github.com/mortalkiller/filament-package-standard/actions/workflows/tests.yml)
+[![Code quality](https://github.com/mortalkiller/filament-package-standard/actions/workflows/quality.yml/badge.svg?branch=1.x)](https://github.com/mortalkiller/filament-package-standard/actions/workflows/quality.yml)
+
 Canonical engineering standard and Laravel Boost skill for maintaining MortalKiller Filament packages.
 
 This package is development tooling. It has no Laravel or Filament runtime integration and no service provider.
