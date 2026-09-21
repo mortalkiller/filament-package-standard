@@ -27,5 +27,8 @@
     "check": [
       "@test"
     ]
+  },
+  "suggest": {
+    "laravel/boost": "Discovers and synchronizes the bundled Agent Skill in Laravel or Testbench development environments."
   }
 }
