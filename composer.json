@@ -1,0 +1,31 @@
+{
+  "$schema": "https://getcomposer.org/schema.json",
+  "name": "mortalkiller/filament-package-standard",
+  "description": "Development standard and Laravel Boost skill for MortalKiller Filament packages.",
+  "homepage": "https://github.com/mortalkiller/filament-package-standard",
+  "keywords": [
+    "filament",
+    "laravel",
+    "laravel-boost",
+    "agent-skills",
+    "development-tools"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "require": {
+    "php": "^8.3"
+  },
+  "support": {
+    "issues": "https://github.com/mortalkiller/filament-package-standard/issues",
+    "source": "https://github.com/mortalkiller/filament-package-standard"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "scripts": {
+    "test": "php tests/verify.php",
+    "check": [
+      "@test"
+    ]
+  }
+}

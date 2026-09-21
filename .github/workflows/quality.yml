@@ -1,0 +1,44 @@
+name: Code quality
+
+on:
+  push:
+    branches: ['*.x']
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240
+        with:
+          php-version: '8.4'
+          coverage: none
+          tools: composer:v2
+
+      - name: Validate Composer package
+        run: composer validate --strict --no-check-lock
+
+      - name: Check tracked PHP syntax
+        run: git ls-files -z '*.php' | xargs -0 -r -n 1 php -l
+
+      - name: Verify distribution archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          git archive --format=tar HEAD | tar -tf - > /tmp/archive-files.txt
+          grep -qx 'resources/boost/skills/developing-filament-packages/SKILL.md' /tmp/archive-files.txt
+          ! grep -q '^tests/' /tmp/archive-files.txt
