@@ -90,7 +90,7 @@ A code change, a successful PR check, a tag and a live publication are separate 
 
 `mortalkiller/filament-package-template` owns repository scaffolding, issue/PR forms, docs branding, reusable workflows, mechanical checks and release tooling. `mortalkiller/filament-package-standard` owns this engineering standard and the maintainer `developing-filament-packages` skill. Mechanical rules belong in tested checks; the skill explains workflow and judgment.
 
-The canonical skill uses Laravel Boost's third-party package convention at `resources/boost/skills/developing-filament-packages/`. Install `mortalkiller/filament-package-standard` as a **direct development dependency** in the Laravel project where Boost manages agents; `php artisan boost:update` can then discover and sync it to selected skills-capable agents. Do not maintain a parallel custom installer.
+The canonical skill uses Laravel Boost's third-party package convention at `resources/boost/skills/developing-filament-packages/`. Install `mortalkiller/filament-package-standard` as a **direct development dependency** alongside Laravel Boost. Use `php artisan boost:update` in a Laravel application, or `vendor/bin/testbench boost:update` when Orchestra Testbench provides the package-development application context. Do not maintain a parallel custom installer.
 
 Generated packages consume this maintainer skill through the dedicated standard package. Packages may additionally expose their own consumer-facing skill under `resources/boost/skills/<skill-name>/` when doing so helps users configure or extend that package correctly. Such a skill must describe package usage, not MortalKiller's internal maintainer workflow. Do not rely on transitive dependencies for Boost discovery.
 
