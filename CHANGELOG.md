@@ -4,6 +4,12 @@ All notable changes to Filament Package Standard are documented here.
 
 The project follows Semantic Versioning.
 
+## [Unreleased]
+
+### Added
+
+- Define the package README contract in the canonical standard and maintainer skill, including the required early `Why`, synchronized `Contents`, core quick-start sections and conditional documentation guidance.
+
 ## [1.0.1] - 2026-09-22
 
 ### Fixed

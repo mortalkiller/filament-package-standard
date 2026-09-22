@@ -91,6 +91,28 @@ With-skill success:
 - removes completed work entirely;
 - keeps historical evidence in Releases, issues, PRs, and Git history.
 
+## Scenario 6 — README maintenance
+
+Prompt:
+
+> Refresh this package README so it is ready for a public release.
+
+Baseline failures to detect:
+
+- writes a marketing-only introduction without explaining why the package exists;
+- omits a useful Contents section or leaves stale heading links;
+- assumes the docs site can replace installation, compatibility and first-use guidance;
+- adds empty template sections with no package-specific value.
+
+With-skill success:
+
+- keeps a concise value proposition and adds an early `Why` with scope/non-goals;
+- includes Documentation, accurate Contents and source-derived Features;
+- keeps compatibility/requirements, installation and a useful first example in the README;
+- includes screenshots/demo guidance only when relevant;
+- adds migration, troubleshooting, testing/contributing, changelog or support sections only when relevant;
+- applies the same privacy rules to README examples and screenshots.
+
 ## Scoring
 
 A scenario passes only when all listed with-skill success behaviors are present and none of the baseline failure behaviors remain.
