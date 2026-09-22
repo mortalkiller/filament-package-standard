@@ -10,13 +10,17 @@ $fail = static function (string $message): never {
 };
 
 $required = [
+    '.editorconfig',
+    '.github/workflows/zizmor.yml',
     'composer.json',
     'docs/package-standard.md',
+    'docs/migrating-to-v2.md',
     'docs/development-flow.md',
     'docs/releasing.md',
     'resources/boost/skills/developing-filament-packages/SKILL.md',
     'resources/boost/skills/developing-filament-packages/references/api-review.md',
     'resources/boost/skills/developing-filament-packages/references/release-checklist.md',
+    'resources/boost/skills/developing-filament-packages/references/scaffolding-and-migration.md',
     'resources/boost/skills/developing-filament-packages/references/standard-summary.md',
 ];
 
@@ -36,6 +40,10 @@ if (($composer['type'] ?? null) !== 'library') {
     $fail('Composer package type must be library.');
 }
 
+if (($composer['require']['php'] ?? null) !== '^8.2') {
+    $fail('Standard v2 must support PHP 8.2+.');
+}
+
 $runtime = array_keys($composer['require'] ?? []);
 if ($runtime !== ['php']) {
     $fail('The standard package must not have runtime dependencies other than PHP.');
@@ -50,8 +58,10 @@ $skill = (string) file_get_contents($root.'/resources/boost/skills/developing-fi
 foreach ([
     'name: developing-filament-packages',
     'description:',
-    'mortalkiller/filament-package-standard',
-    'resources/boost/skills/developing-filament-packages',
+    'Standard v2',
+    'references/scaffolding-and-migration.md',
+    'Larastan',
+    'Zizmor',
     'Ecosystem 100',
     'Maintenance 100',
     'Security 100',
@@ -75,8 +85,19 @@ if (str_contains($attributes, '/resources export-ignore') || str_contains($attri
 }
 
 $standard = (string) file_get_contents($root.'/docs/package-standard.md');
-if (! str_contains($standard, 'mortalkiller/filament-package-standard')) {
-    $fail('Canonical standard does not identify the standard package as its owner.');
+foreach ([
+    'MortalKiller Filament Package Standard v2',
+    '## Package profiles and capabilities',
+    'Larastan',
+    'level 6 or higher',
+    'Zizmor',
+    '.editorconfig',
+    'does not by itself require a new major',
+    'mortalkiller/filament-package-standard:^2.0',
+] as $needle) {
+    if (! str_contains($standard, $needle)) {
+        $fail('Canonical Standard v2 is missing required guidance: '.$needle);
+    }
 }
 
 foreach ([
@@ -91,6 +112,13 @@ foreach ([
     }
 }
 
+$migration = (string) file_get_contents($root.'/docs/migrating-to-v2.md');
+foreach (['does not by itself require a new major release', 'Larastan', 'Zizmor', 'Package Tools', 'PHP 8.2'] as $needle) {
+    if (! str_contains($migration, $needle)) {
+        $fail('Migration guidance is missing: '.$needle);
+    }
+}
+
 $summary = (string) file_get_contents($root.'/resources/boost/skills/developing-filament-packages/references/standard-summary.md');
 if (! str_contains($summary, 'Contents must stay synchronized')) {
     $fail('Quick reference must include the README synchronization rule.');
@@ -101,4 +129,9 @@ if (! str_contains($release, 'Packagist versions are immutable once observed')) 
     $fail('Release guidance must document Packagist version immutability.');
 }
 
-echo "filament-package-standard verification passed".PHP_EOL;
+$zizmor = (string) file_get_contents($root.'/.github/workflows/zizmor.yml');
+if (! str_contains($zizmor, 'zizmorcore/zizmor-action@70fb788f84895a7701f5643d103d587e460b5c99')) {
+    $fail('Zizmor action must be pinned to the reviewed full SHA.');
+}
+
+echo "filament-package-standard v2 verification passed".PHP_EOL;

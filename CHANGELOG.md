@@ -8,7 +8,16 @@ The project follows Semantic Versioning.
 
 ### Added
 
-- Define the package README contract in the canonical standard and maintainer skill, including the required early `Why`, synchronized `Contents`, core quick-start sections and conditional documentation guidance.
+- Define MortalKiller Filament Package Standard v2.
+- Align package profiles and conditional capabilities with `filament-package-template` v2.
+- Make Larastan level 6+ the default Laravel-aware analysis policy for runtime packages.
+- Require strict test-runner behavior, root `.editorconfig`, Zizmor and evidence-based compatibility boundaries.
+- Add Standard v1 → v2 migration guidance and a scaffolding/migration skill reference.
+- Clarify that a Standard/tooling major does not by itself require a consumer package major.
+
+### Changed
+
+- Lower the Standard package's own PHP requirement from 8.3 to 8.2.
 
 ## [1.0.1] - 2026-09-22
 

@@ -41,4 +41,5 @@ jobs:
           set -euo pipefail
           git archive --format=tar HEAD | tar -tf - > /tmp/archive-files.txt
           grep -qx 'resources/boost/skills/developing-filament-packages/SKILL.md' /tmp/archive-files.txt
+          grep -qx 'resources/boost/skills/developing-filament-packages/references/scaffolding-and-migration.md' /tmp/archive-files.txt
           ! grep -q '^tests/' /tmp/archive-files.txt
