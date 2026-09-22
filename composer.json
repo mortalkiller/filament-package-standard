@@ -29,6 +29,6 @@
     ]
   },
   "suggest": {
-    "laravel/boost": "Discovers and synchronizes the bundled Agent Skill in Laravel or Testbench development environments."
+    "laravel/boost": "Discovers and synchronizes the bundled Agent Skill when this package is a direct dependency of a Laravel application."
   }
 }
