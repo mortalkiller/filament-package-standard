@@ -4,7 +4,7 @@ All notable changes to Filament Package Standard are documented here.
 
 The project follows Semantic Versioning.
 
-## [1.0.1] - Unreleased
+## [1.0.1] - 2026-09-22
 
 ### Fixed
 
