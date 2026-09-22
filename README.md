@@ -19,7 +19,7 @@ This package is development tooling. It has no Laravel or Filament runtime integ
 
 ## Installation
 
-After Standard v2 is released, install it as a direct development dependency:
+Install Standard v2 as a direct development dependency:
 
 ```bash
 composer require --dev mortalkiller/filament-package-standard:^2.0
