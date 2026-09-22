@@ -1,6 +1,6 @@
 # MortalKiller Filament Package Standard v2
 
-**Status:** Candidate — template-v2 alignment, 2026-09-22  
+**Status:** Approved — v2.0.0, 2026-09-22  
 **Owner:** Pedro Monteiro / MortalKiller  
 **Scope:** Public Filament packages maintained under the `mortalkiller` GitHub account.
 
@@ -170,7 +170,7 @@ A code change, a successful PR check, a tag and a live publication are separate 
 
 `mortalkiller/filament-package-standard` owns this engineering standard and the maintainer `developing-filament-packages` skill. Mechanical rules belong in tested checks; the skill explains workflow and judgment.
 
-Install `mortalkiller/filament-package-standard:^2.0` as a **direct development dependency** in packages adopting Standard v2 once v2 is released. Agents in standalone package repositories read the installed skill directly from `vendor/mortalkiller/filament-package-standard/resources/boost/skills/developing-filament-packages/SKILL.md`. In real Laravel applications that also use Laravel Boost, `php artisan boost:update` can discover and synchronize the same skill. Do not rely on Testbench as the Boost project root.
+Install `mortalkiller/filament-package-standard:^2.0` as a **direct development dependency** in packages adopting Standard v2. Agents in standalone package repositories read the installed skill directly from `vendor/mortalkiller/filament-package-standard/resources/boost/skills/developing-filament-packages/SKILL.md`. In real Laravel applications that also use Laravel Boost, `php artisan boost:update` can discover and synchronize the same skill. Do not rely on Testbench as the Boost project root.
 
 Generated packages may additionally expose their own consumer-facing skill under `resources/boost/skills/<skill-name>/` when doing so helps users configure or extend that package correctly. Such a skill must describe package usage, not MortalKiller's internal maintainer workflow. Do not rely on transitive dependency discovery.
 

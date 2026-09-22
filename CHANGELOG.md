@@ -6,6 +6,8 @@ The project follows Semantic Versioning.
 
 ## [Unreleased]
 
+## [2.0.0] - 2026-09-22
+
 ### Added
 
 - Define MortalKiller Filament Package Standard v2.
