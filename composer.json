@@ -30,5 +30,9 @@
   },
   "suggest": {
     "laravel/boost": "Discovers and synchronizes the bundled Agent Skill in Laravel or Testbench development environments."
+  },
+  "require-dev": {
+    "laravel/boost": "^2.9",
+    "orchestra/testbench": "^11.0"
   }
 }
