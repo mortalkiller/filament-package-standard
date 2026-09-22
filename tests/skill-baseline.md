@@ -2,7 +2,7 @@
 
 Behavioral baseline execution is intentionally not fabricated.
 
-The current Standard v1 policy uses static contract tests, repository CI, and real package work as the empirical feedback loop. The scenarios in `skill-scenarios.md` remain available for future fresh-context regression testing when a suitable multi-agent harness is available.
+Standard v2 uses static contract tests, repository CI and real package work as the empirical feedback loop. The scenarios in `skill-scenarios.md` remain available for future fresh-context regression testing when a suitable multi-agent harness is available.
 
 Required evidence for any future baseline/with-skill comparison:
 

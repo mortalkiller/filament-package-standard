@@ -1,31 +1,33 @@
-# MortalKiller Filament Package Standard v1 — quick reference
+# MortalKiller Filament Package Standard v2 — quick reference
 
-The canonical complete standard is `docs/package-standard.md` in `mortalkiller/filament-package-standard`. See `docs/development-flow.md` for the maintainer workflow.
+The canonical complete standard is `docs/package-standard.md` in `mortalkiller/filament-package-standard`. See `docs/development-flow.md` for workflow and `docs/migrating-to-v2.md` for migration.
 
-## Branches
+## SemVer and branches
 
-Permanent branches are package majors (`1.x`, `2.x`, `3.x`), without a separate stable-promotion branch. The default is the newest stable major, or `1.x` before the first release. Temporary branches start from, and target, the affected major. Release immutable `vX.Y.Z` tags directly from verified commits on `X.x`. Branch heads may include unreleased work. Do not move published tags or merge an older major wholesale into a newer one.
+Permanent branches are package majors (`1.x`, `2.x`, `3.x`), without a stable-promotion branch. The default is the newest stable package major. A Standard or template major does not itself require a new package major. Release immutable `vX.Y.Z` tags directly from verified package-major commits.
 
-## Repository baseline
+## Repository and scaffold
 
-Keep `.github/ISSUE_TEMPLATE/`, `.github/workflows/`, `docs/roadmap.md`, `docs-site/`, `src/`, `tests/`, `AGENTS.md`, `CONTRIBUTING.md`, `LICENSE.md`, `README.md`, `SECURITY.md`, `composer.json`, and `phpunit.xml.dist`. Config, migrations, resources, workbench, JavaScript and Playwright exist only when needed. PHPStan is expected for new packages unless deliberately excluded.
+Keep `.editorconfig`, repository/CI metadata, docs, `src/`, tests, README/security/contributing files and Composer metadata. Choose the narrowest runtime profile: `plugin`, `theme`, `forms`, `tables`, or `library`. Add config, database, views, translations, stubs, assets, Workbench, browser tests and Rector only when needed.
 
-## CI
+New runtime packages prefer `spatie/laravel-package-tools`. Panel `Plugin` classes belong only to panel-oriented packages. Do not refactor existing runtime code solely for template conformity.
 
-Require Composer validation, Pint, tracked PHP syntax, PHP behavior tests, minimum/latest compatibility boundaries and the Starlight docs build. Include static analysis and JS/browser tests where applicable. No required-check failure is merged. External actions and workflows use full SHA references; the checker and publication tooling use the same validated `standard-ref`.
+## CI and analysis
+
+Require Composer validation, Pint, tracked PHP syntax, strict PHP behavior tests, minimum/latest compatibility boundaries, Starlight docs build and Zizmor. Larastan is the default for Laravel/Filament runtime packages at level 6 or higher. New packages do not start with analysis baselines. Test Windows when filesystem/initializer/shell behavior is cross-platform-sensitive. External actions/workflows use full SHA references.
 
 ## Documentation
 
-The README is the quick start; Starlight is the complete guide; source and tests are runtime authority. A maintained README includes a concise value proposition, an early `Why`, Documentation links, accurate Contents, Features, compatibility/requirements, installation and useful first-use/configuration guidance, plus screenshots/demo material when visual behavior exists. Keep Roadmap, Security and license/credits discoverable; add migration, troubleshooting, testing/contributing, changelog and support sections when relevant. Contents must stay synchronized and README examples follow the same privacy rules. Cover Getting Started, Guides, API Reference, Development and Project in Starlight. PRs/pushes validate only. Stable releases publish the exact tag through `docs-production`, after exact-commit CI. `/<package>/` is Latest; `/<package>/N.x/` is the latest published documentation for that major. Prereleases and older majors must not replace Latest. Manual publication defaults to a dry run of an existing stable release. Preserve other major directories and prevent rollback.
+The README is the quick start; Starlight is the complete guide; source and tests are runtime authority. A maintained README includes value proposition, early `Why`, Documentation links, accurate Contents, Features, compatibility/requirements, installation and useful first-use/configuration guidance. Contents must stay synchronized. Add screenshots and extra sections only when relevant. Stable releases publish exact-tag docs; older majors/prereleases/stale reruns cannot replace Latest.
 
 ## Privacy
 
-Never publish private customers/applications, real infrastructure, hosts/IPs/SSH details, internal container names or paths, credentials/tokens/session/MFA secrets, private screenshots or personal data. Use synthetic examples: `Customer`, `Order`, `Product`, `Workspace`, `demo-filament-app`, `example.com`, `/var/www/app`, `php`.
+Never publish private customers/applications, real infrastructure, hosts/IPs/SSH details, internal container names or paths, credentials/tokens/session/MFA secrets, private screenshots or personal data. Use synthetic examples.
 
-## GitHub lifecycle
+## Lifecycle
 
-Roadmap → Issue → temporary branch → PR to major → CI/review → squash merge → roadmap cleanup → immutable tag and release → issue closing record. Fix the oldest supported affected line first and forward-port the relevant fix with tests. Historical unsupported lines stay frozen.
+Roadmap → issue → temporary branch → PR to package major → CI/review → squash merge → roadmap cleanup → immutable tag/release → issue closing record. Fix the oldest supported affected line first and forward-port relevant changes with tests.
 
 ## Maintenance
 
-Dependabot runs weekly for Composer and GitHub Actions, and npm where applicable; use the seven-day cooldown and limited PR counts, without universal auto-merge. Declared compatibility must be tested. Actively maintained public packages require fresh PlumbPHP 100 in Ecosystem, Maintenance, Security and Composite before release completion. Never claim a cached scan evaluated a newer commit.
+Dependabot runs weekly for Composer/GitHub Actions and npm where applicable. Declared compatibility must be tested. Actively maintained public packages require fresh PlumbPHP 100 in Ecosystem, Maintenance, Security and Composite before release completion.
