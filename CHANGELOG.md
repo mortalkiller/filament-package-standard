@@ -4,6 +4,12 @@ All notable changes to Filament Package Standard are documented here.
 
 The project follows Semantic Versioning.
 
+## [1.0.1] - Unreleased
+
+### Fixed
+
+- Correct standalone package guidance: Testbench is not the Laravel Boost project root, so package repositories read the installed maintainer skill directly from the Standard dependency instead of relying on `vendor/bin/testbench boost:update`.
+
 ## [1.0.0] - 2026-09-22
 
 ### Added
