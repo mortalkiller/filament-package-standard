@@ -15,25 +15,21 @@ This package is development tooling. It has no Laravel or Filament runtime integ
 
 ## Installation
 
-Install this package as a direct development dependency alongside Laravel Boost:
+Install this package as a direct development dependency:
 
 ```bash
-composer require --dev laravel/boost mortalkiller/filament-package-standard
+composer require --dev mortalkiller/filament-package-standard
 ```
 
-In a Laravel application:
+In a standalone package repository, agents should read the installed skill directly from:
 
-```bash
-php artisan boost:update
+```text
+vendor/mortalkiller/filament-package-standard/resources/boost/skills/developing-filament-packages/SKILL.md
 ```
 
-In a standalone Laravel package that uses Orchestra Testbench as its application context:
+In a real Laravel application that also installs Laravel Boost, `php artisan boost:update` can discover the Standard as a direct Composer dependency and synchronize the skill to supported agents.
 
-```bash
-vendor/bin/testbench boost:update
-```
-
-Laravel Boost discovers the skill from:
+The skill is distributed from:
 
 ```text
 resources/boost/skills/developing-filament-packages/
