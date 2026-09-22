@@ -56,6 +56,9 @@ foreach ([
     'Maintenance 100',
     'Security 100',
     'Composite 100',
+    '## README contract',
+    '## Why',
+    '## Contents',
 ] as $needle) {
     if (! str_contains($skill, $needle)) {
         $fail('Skill is missing required content: '.$needle);
@@ -74,6 +77,23 @@ if (str_contains($attributes, '/resources export-ignore') || str_contains($attri
 $standard = (string) file_get_contents($root.'/docs/package-standard.md');
 if (! str_contains($standard, 'mortalkiller/filament-package-standard')) {
     $fail('Canonical standard does not identify the standard package as its owner.');
+}
+
+foreach ([
+    '### README contract',
+    '## Why',
+    '## Documentation',
+    '## Contents',
+    '## Features',
+] as $needle) {
+    if (! str_contains($standard, $needle)) {
+        $fail('Canonical standard is missing README guidance: '.$needle);
+    }
+}
+
+$summary = (string) file_get_contents($root.'/resources/boost/skills/developing-filament-packages/references/standard-summary.md');
+if (! str_contains($summary, 'Contents must stay synchronized')) {
+    $fail('Quick reference must include the README synchronization rule.');
 }
 
 $release = (string) file_get_contents($root.'/docs/releasing.md');
