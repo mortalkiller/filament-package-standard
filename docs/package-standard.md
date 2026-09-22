@@ -50,6 +50,26 @@ Reusable workflows live in `mortalkiller/filament-package-template`. External ac
 
 Use Astro + Starlight under `docs-site/`, with shared Pedro Monteiro branding and links to GitHub and `https://pedromonteiro.dev`. Keep Getting Started, Guides, API Reference, Development and Project sections. The README is the quick start; Starlight is the complete user documentation; source and tests are runtime authority. Never document APIs based solely on old README prose.
 
+### README contract
+
+Every maintained public Filament package must keep a clear, current README that can stand on its own as the package quick start. Use this structure unless a package-specific reason requires a nearby equivalent:
+
+1. Optional showcase image when the package has visual behavior worth evaluating.
+2. Package title, Packagist/CI/license badges and the required PlumbPHP badges.
+3. A concise value proposition describing what the package does.
+4. An early `## Why` section, before the main usage documentation, explaining the concrete problem the package solves, why the package exists instead of repeating application-specific implementations, and its scope or non-goals. Do not use the section for marketing-only claims or imply Laravel/Filament is deficient when the native behavior is intentionally simpler.
+5. `## Documentation` with the canonical documentation URL and the most useful entry points.
+6. `## Contents` with accurate links to the README's important top-level sections, including `Why`. Update it whenever headings change.
+7. `## Features` with user-visible capabilities derived from source and tests.
+8. Screenshots or demo guidance when visual behavior or a representative workbench exists.
+9. Version compatibility or requirements, then installation.
+10. A first useful example plus the package-specific configuration and task-oriented guidance needed to get value without reading the full docs site.
+11. Roadmap, Security and license/credits information near the end.
+
+Add migration/upgrade guidance, troubleshooting, testing/contributing, changelog and sponsorship/support sections when they are relevant to that package. Do not create empty ceremonial sections merely to satisfy a template.
+
+The README must remain shorter and more task-oriented than the full Starlight documentation, but linking to the docs site is not a reason to omit the `Why`, `Contents`, `Features`, compatibility or installation essentials. Examples and screenshots follow the same public-data and privacy rules as every other document.
+
 PRs and major-branch pushes build and validate documentation without deploying or inheriting deployment secrets. Stable GitHub Releases publish the exact release-tag source after major-ancestry and exact-commit CI verification, through the `docs-production` environment and only with `DOCS_DEPLOY_ENABLED=true`. Prereleases do not replace stable documentation.
 
 The canonical `https://docs.pedromonteiro.dev/<package>/` URL remains Latest. `/<package>/N.x/` contains the latest published documentation for that major. Choose versions semantically, not by publication date. An old-major release or stale re-run must not downgrade a channel or Latest. Publishing Latest must preserve every other major directory. The version selector lists deployed channels from `versions.json`.
