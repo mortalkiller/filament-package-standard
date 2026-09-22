@@ -21,9 +21,28 @@ Prefer native Laravel/Filament behavior and a small fluent, predictable API. Pre
 
 **REQUIRED REFERENCE:** Read `references/api-review.md` before adding or changing public API. Tests and source-derived documentation are part of the feature.
 
+## README contract
+
+Every maintained public package needs a useful README quick start. When creating or materially changing one, preserve this structure unless the package has a concrete reason for a nearby equivalent:
+
+- optional showcase image for visual packages;
+- package title, package/CI/license badges and all required PlumbPHP badges;
+- concise value proposition;
+- an early `## Why` section explaining the real problem, the reason for the package, and its scope/non-goals without marketing-only claims;
+- `## Documentation` with the canonical docs URL and key guides;
+- `## Contents` that includes `Why` and accurately links the important README sections;
+- `## Features` based on source/tests;
+- screenshots/demo guidance when the package has meaningful visual behavior;
+- version compatibility or requirements;
+- installation;
+- first useful example plus package-specific configuration/usage;
+- Roadmap, Security and license/credits near the end.
+
+Add migration/upgrade, troubleshooting, testing/contributing, changelog and sponsorship/support sections when relevant. Do not add empty sections only to satisfy a template. Keep Contents synchronized whenever headings change. The README is a quick start, not a duplicate of the full docs site, but the docs site does not replace these README essentials.
+
 ## Documentation and privacy
 
-Derive API docs from source and tests, not old README assumptions. Use fictional examples; never publish private consumers, infrastructure, credentials, tokens, hosts, SSH details, real container names, paths or screenshots. Keep the roadmap future-only.
+Derive API docs from source and tests, not old README assumptions. Use fictional examples; never publish private consumers, infrastructure, credentials, tokens, hosts, SSH details, real container names, paths or screenshots. Keep the roadmap future-only. Apply the same privacy rules to README examples and screenshots.
 
 PRs and pushes validate docs only. Stable releases publish the exact tag into its major channel, and update Latest only when semantically newest. Prereleases, old majors and stale reruns cannot replace newer stable documentation. Manual publication defaults to a dry run of an existing release.
 
