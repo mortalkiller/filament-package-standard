@@ -113,7 +113,7 @@ foreach ([
 }
 
 $migration = (string) file_get_contents($root.'/docs/migrating-to-v2.md');
-foreach (['does not by itself require a new major release', 'Larastan', 'Zizmor', 'Package Tools', 'PHP 8.2'] as $needle) {
+foreach (['does not by itself require a new major release', 'Larastan', 'Zizmor', 'spatie/laravel-package-tools', 'PHP 8.2'] as $needle) {
     if (! str_contains($migration, $needle)) {
         $fail('Migration guidance is missing: '.$needle);
     }
