@@ -13,6 +13,7 @@
 - [ ] Create a new immutable `vX.Y.Z` tag on a verified commit belonging to `X.x`, then publish the GitHub Release. Do not move, delete/recreate, or reuse a published tag.
 - [ ] Mark RC/beta releases as prereleases; never promote them to stable documentation.
 - [ ] Verify release documentation: source equals the tag, exact-commit CI passed, and package-major/Latest channels cannot regress.
+- [ ] Confirm the release deploy job is local to the consuming repository, enters `docs-production` there, and reads only the required `DOCS_*` environment secrets without `secrets: inherit`.
 - [ ] Confirm deployment configuration when applicable and verify the public major channel, canonical Latest URL, selector, assets and links.
 - [ ] Change the default branch only after the first stable release of a newer package major is complete.
 - [ ] Record the published release on relevant issues and update installed agent skills when tooling changed.
