@@ -18,7 +18,7 @@ Require Composer validation, Pint, tracked PHP syntax, strict PHP behavior tests
 
 ## Documentation
 
-The README is the quick start; Starlight is the complete guide; source and tests are runtime authority. A maintained README includes value proposition, early `Why`, Documentation links, accurate Contents, Features, compatibility/requirements, installation and useful first-use/configuration guidance. Contents must stay synchronized. Add screenshots and extra sections only when relevant. Stable releases publish exact-tag docs; older majors/prereleases/stale reruns cannot replace Latest.
+The README is the quick start; Starlight is the complete guide; source and tests are runtime authority. A maintained README includes value proposition, early `Why`, Documentation links, accurate Contents, Features, compatibility/requirements, installation and useful first-use/configuration guidance. Contents must stay synchronized. Add screenshots and extra sections only when relevant. Stable releases publish exact-tag docs; older majors/prereleases/stale reruns cannot replace Latest. Release builds may be reusable, but the consuming repository owns the local `docs-production` deploy job and its `DOCS_*` environment secrets.
 
 ## Privacy
 
