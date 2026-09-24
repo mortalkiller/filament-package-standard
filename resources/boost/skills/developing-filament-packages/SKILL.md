@@ -65,7 +65,7 @@ Add migration/upgrade, troubleshooting, testing/contributing, changelog and spon
 
 Derive API docs from source and tests, not old README assumptions. Use fictional examples; never publish private consumers, infrastructure, credentials, tokens, hosts, SSH details, real container names, paths or screenshots. Keep the roadmap future-only.
 
-PRs and pushes validate docs only. Stable releases publish the exact tag into its package-major channel and update Latest only when semantically newest. Prereleases, old majors and stale reruns cannot replace newer stable documentation. Manual publication defaults to a dry run of an existing release.
+PRs and pushes validate docs only. Stable releases publish the exact tag into its package-major channel and update Latest only when semantically newest. Prereleases, old majors and stale reruns cannot replace newer stable documentation. Manual publication defaults to a dry run of an existing release. Shared reusable workflows may verify and build release artifacts, but the consuming repository must own the `docs-production` deploy job and read its `DOCS_*` environment secrets locally; never use unconditional `secrets: inherit` to make deployment credentials available to a cross-repository reusable workflow.
 
 ## Verification
 
