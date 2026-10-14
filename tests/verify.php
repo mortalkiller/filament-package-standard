@@ -130,7 +130,7 @@ if (! str_contains($release, 'Packagist versions are immutable once observed')) 
 }
 
 $zizmor = (string) file_get_contents($root.'/.github/workflows/zizmor.yml');
-if (! str_contains($zizmor, 'zizmorcore/zizmor-action@70fb788f84895a7701f5643d103d587e460b5c99')) {
+if (! str_contains($zizmor, 'zizmorcore/zizmor-action@cc914d7f3750a2d13d75c7f184a1060aa0e9d482')) {
     $fail('Zizmor action must be pinned to the reviewed full SHA.');
 }
 
