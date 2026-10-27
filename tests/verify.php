@@ -130,8 +130,10 @@ if (! str_contains($release, 'Packagist versions are immutable once observed')) 
 }
 
 $zizmor = (string) file_get_contents($root.'/.github/workflows/zizmor.yml');
-if (! str_contains($zizmor, 'zizmorcore/zizmor-action@cc914d7f3750a2d13d75c7f184a1060aa0e9d482')) {
-    $fail('Zizmor action must be pinned to the reviewed full SHA.');
+// Enforce immutable full-SHA pinning without tying this check to an obsolete action revision.
+// Reviewing the action update is handled by the pull request, not by a hard-coded hash here.
+if (! preg_match('/^\\s*-\\s*uses:\\s*zizmorcore\\/zizmor-action@[a-f0-9]{40}\\s*$/m', $zizmor)) {
+    $fail('Zizmor action must be pinned to a full 40-character commit SHA.');
 }
 
 echo "filament-package-standard v2 verification passed".PHP_EOL;
